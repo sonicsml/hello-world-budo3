@@ -8,14 +8,16 @@ public class ChoiceNumber : MonoBehaviour
 {
     [SerializeField] private int _max;
     [SerializeField] private int _min;
+    private int _counterSteps;
     private int _guess;
 
     private void Start()
     {
         Debug.Log(message:$"Загадай число от {_min} до {_max}");
         CalcGuess();
+        _counterSteps = 0;
     }
-
+ 
     
     private void Update()
     {
@@ -40,5 +42,8 @@ public class ChoiceNumber : MonoBehaviour
     {
         _guess = (_min + _max) / 2;
         Debug.Log(message:$"Твоё число {_guess}?");
+        Debug.Log(message:$"Кол-во шагов {_counterSteps}?");
+        _counterSteps += 1;
     }
+    
 }
