@@ -6,13 +6,13 @@ using UnityEngine.PlayerLoop;
 
 public class ChoiceNumber : MonoBehaviour
 {
-    [SerializeField] private int max;
-    public int min;
-    private int guess;
+    [SerializeField] private int _max;
+    [SerializeField] private int _min;
+    private int _guess;
 
     private void Start()
     {
-        Debug.Log(message:$"Загадай число от {min} до {max}");
+        Debug.Log(message:$"Загадай число от {_min} до {_max}");
         CalcGuess();
     }
 
@@ -21,12 +21,12 @@ public class ChoiceNumber : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            min = guess;
+            _min = _guess;
             CalcGuess();
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            max = guess;
+            _max = _guess;
             CalcGuess();
         }
         if (Input.GetKeyDown(KeyCode.Space))
@@ -38,7 +38,7 @@ public class ChoiceNumber : MonoBehaviour
 
     private void CalcGuess()
     {
-        guess = (min + max) / 2;
-        Debug.Log(message:$"Твоё число {guess}?");
+        _guess = (_min + _max) / 2;
+        Debug.Log(message:$"Твоё число {_guess}?");
     }
 }
